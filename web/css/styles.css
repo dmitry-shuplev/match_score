@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Digital-7';
+    src: url('/fonts/Digital-7.ttf') format('truetype'); /* Укажите путь к шрифту */
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -31,6 +36,53 @@ h1 {
     transition: background-color 0.3s;
 }
 
-.start-button:hover {
+.main-button:hover {
     background-color: #45a049;
+}
+
+
+table {
+    width: 100%; /* Ширина таблицы */
+    border-collapse: collapse; /* Убираем пробелы между ячейками */
+}
+
+td {
+    border: none; /* Граница ячейки */
+    padding: 10px; /* Отступ внутри ячейки */
+    text-align: center; /* Выравнивание текста по центру */
+    font-size: 1.2em; /* Размер шрифта для ячеек */
+}
+
+.scoreboard {
+    font-family: 'Digital-7', monospace;
+    background-color: black; /* Цвет фона для таблицы */
+    color: red; /* Цвет текста */
+    border-radius: 10px; /* Закругление углов */
+    margin: 20px auto; /* Центрируем таблицу */
+    max-width: 600px; /* Максимальная ширина таблицы */
+}
+
+.player-info {
+    width: 100%; /* Полная ширина для выравнивания текста */
+    font-size: 2em;
+    margin-bottom: 10px; /* Отступ между игроками */
+}
+
+.score-labels {
+    width: 100%; /* Задаем ширину для выравнивания */
+    font-size: 1em; /* Размер шрифта для названий */
+    margin-bottom: 10px; /* Отступ между заголовками и следующей секцией */
+}
+
+.button-link {
+    font-family: 'Digital-7', monospace;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: inherit;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
 }
