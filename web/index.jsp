@@ -10,9 +10,8 @@
 
 <div class="container">
     <h1>Добро пожаловать в наше теннисное приложение!</h1>
-    <p>Здесь вы можете отслеживать счета теннисных матчей.</p>
-    <a href="new-match.jsp" class="main-button">Создать новый матч</a>
-    <a href="matches.jsp" class="main-button">Посмотреь список матчей</a>
+    <a href="/new-match" class="main-button">Создать новый матч</a>
+    <a href="/matches" class="main-button">Посмотреь список матчей</a>
 
 </div>
 
