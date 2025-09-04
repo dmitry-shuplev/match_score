@@ -8,6 +8,7 @@ import lombok.Setter;
 public class Match {
     private String firstPlayerName;
     private String secondPlayerName;
+    private String winnreName;
     private int firstPlayerGameScore;
     private int firstPlayerSetScore;
     private int firstPlayerMatchScore;
@@ -16,11 +17,12 @@ public class Match {
     private int secondPlayerMatchScore;
 
     public Match() {
+        winnreName = "none";
         firstPlayerGameScore = 0;
-        firstPlayerSetScore = 0;
-        firstPlayerMatchScore = 0;
+        firstPlayerSetScore = 5;
+        firstPlayerMatchScore = 1;
         secondPlayerGameScore = 0;
-        secondPlayerSetScore = 0;
-        secondPlayerMatchScore = 0;
+        secondPlayerSetScore = 1;
+        secondPlayerMatchScore = 1;
     }
 }
