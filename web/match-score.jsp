@@ -43,7 +43,7 @@
     <table class="scoreboard">
         <tr class="player-info">
             <td>
-                <form action="${pageContext.request.contextPath}/new-match" method="post" style="display: inline">
+                <form action="${pageContext.request.contextPath}/match-score" method="post" style="display: inline">
                     <button type="submit" name="playerName" value="${match.getFirstPlayerName()}" class="button-link">
                         ${match.getFirstPlayerName()}
                     </button>
@@ -61,7 +61,7 @@
         </tr>
         <tr class="player-info">
             <td>
-                <form action="${pageContext.request.contextPath}/new-match" method="post" style="display: inline">
+                <form action="${pageContext.request.contextPath}/match-score" method="post" style="display: inline">
                     <button type="submit" name="playerName" value="${match.getSecondPlayerName()}" class="button-link">
                         ${match.getSecondPlayerName()}
                     </button>

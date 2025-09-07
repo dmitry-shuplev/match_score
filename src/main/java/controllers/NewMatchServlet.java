@@ -26,7 +26,7 @@ public class NewMatchServlet extends HttpServlet {
         match.setFirstPlayerName("Иванов");
         match.setSecondPlayerName("Петров");
               request.setAttribute("match", match);
-        request.getRequestDispatcher("/new-match.jsp").forward(request, response);
+        request.getRequestDispatcher("/match-score.jsp").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,7 +35,7 @@ public class NewMatchServlet extends HttpServlet {
         match = matchHandler.execute(winnerName);
         request.setAttribute("match", match);
         if (match.getWinnreName().equals("none")) {
-            request.getRequestDispatcher("/new-match.jsp").forward(request, response);
+            request.getRequestDispatcher("/match-score.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("/matches.jsp").forward(request, response);
         }
