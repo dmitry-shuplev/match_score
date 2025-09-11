@@ -1,11 +1,10 @@
 package utils;
 
-import lombok.Getter;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
 
-@Getter
+
 public class HibernateUtils {
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
@@ -16,6 +15,9 @@ public class HibernateUtils {
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
+    }
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 
 }

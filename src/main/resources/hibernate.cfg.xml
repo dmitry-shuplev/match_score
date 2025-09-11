@@ -7,8 +7,8 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/match-score</property>
-        <property name="hibernate.connection.username">diamos</property>
-        <property name="hibernate.connection.password">55555</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">11111</property>
 
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
@@ -19,5 +19,6 @@
         <!-- Регистрация ваших классов сущностей -->
         <mapping class="models.Player"/>
         <mapping class="models.Match"/>
+        <mapping class="models.Test"/> <!-- Регистрация класса Test -->
     </session-factory>
 </hibernate-configuration>

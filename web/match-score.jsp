@@ -1,4 +1,4 @@
-<%@ page import="models.MatchDTO" %>
+<%@ page import="models.MatchDto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
@@ -13,7 +13,7 @@
 <div class="container">
     <h1>Табло текущего матча</h1>
     <%-- Табло матча --%>
-    <% MatchDTO match = (MatchDTO) request.getAttribute("match"); %>
+    <% MatchDto match = (MatchDto) request.getAttribute("match"); %>
     <%!
         String convertedScore(int score1, int score2) {
             if (score1 > 3) {

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class MatchDTO {
+public class MatchDto {
     private String firstPlayerName;
     private String secondPlayerName;
     private String winnreName;
@@ -16,7 +16,7 @@ public class MatchDTO {
     private int secondPlayerSetScore;
     private int secondPlayerMatchScore;
 
-    public MatchDTO() {
+    public MatchDto() {
         winnreName = "none";
         firstPlayerGameScore = 0;
         firstPlayerSetScore = 5;
