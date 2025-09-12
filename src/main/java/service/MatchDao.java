@@ -61,8 +61,8 @@ public class MatchDao {
         List<Match> matches = null;
         Session session = sf.openSession();
         try {
-            //matches = session.createQuery("FROM Match", Match.class).list();
-            matches = session.createNativeQuery("SELECT * FROM matches", Match.class).getResultList();
+            matches = session.createQuery("FROM Match", Match.class).list();
+           // matches = session.createNativeQuery("SELECT * FROM matches", Match.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

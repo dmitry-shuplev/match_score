@@ -1,29 +1,41 @@
 package models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "matches")
 @Getter
 @Setter
 public class Match {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
     @Column(name = "date")
     private LocalDateTime date;
 
-    public Match() {}
+    @Column(name = "firstplayerid")
+    private int firstPlayerId;
 
-    public Match(int id, LocalDateTime date) {
+    @Column(name = "secondplayerid")
+    private int secondPlayerId;
+
+    @Column(name = "winner")
+    private int winner;
+
+    public Match() {
+    }
+
+    public Match(int id,  LocalDateTime date,  int firstPlayerId, int secondPlayerId, int winner) {
         this.id = id;
         this.date = date;
+        this.firstPlayerId = firstPlayerId;
+        this.secondPlayerId = secondPlayerId;
+        this.winner = winner;
     }
 }
