@@ -10,8 +10,15 @@
 
 <div class="container">
     <h1>Добро пожаловать в наше теннисное приложение!</h1>
-    <a href="/new-match" class="main-button">Создать новый матч</a>
-    <a href="/matches" class="main-button">Посмотреь список матчей</a>
+
+    <div>
+        <form action="StartServlet" method="post">
+            <submit class="main-button">Начать новый матч между игроками.</submit>
+        </form>
+    </div>
+    <div>
+        <a href="/matches" class="main-button">Посмотреь список матчей</a>
+    </div>
 
 </div>
 
