@@ -1,16 +1,16 @@
 package service;
 
-import models.MatchDto;
+import models.MatchProcessDto;
 
 public class MatchHandler {
-    private MatchDto match;
+    private MatchProcessDto match;
     private int winnerNum = 0;
 
-    public MatchHandler(MatchDto m) {
+    public MatchHandler(MatchProcessDto m) {
         match = m;
     }
 
-    public MatchDto execute(String winnerName) {
+    public MatchProcessDto execute(String winnerName) {
         winnerNum = getWinnerNum(winnerName);
         if (winnerNum == 1) {
             match.setFirstPlayerGameScore(match.getFirstPlayerGameScore() + 1);

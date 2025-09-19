@@ -1,49 +1,30 @@
 package service;
 
 import models.Match;
+import models.MatchWebDto;
+import models.Player;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import utils.HibernateUtils;
 
 import java.sql.ResultSet;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MatchDao {
-    private SessionFactory sf = HibernateUtils.getSessionFactory();
-
-    public List<Match> getAll() {
-        Transaction transaction = null;
-        List<Match> matches = null;
-        Session session = sf.openSession();
-        try {
-            transaction = session.beginTransaction();
-            Query<Match> query = session.createQuery("FROM Match", Match.class);
-            matches = query.getResultList();
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-
-        return matches;
-    }
+    private SessionFactory SessionFactory = HibernateUtils.getSessionFactory();
 
     public List<String> getAllTableNames() {
         Transaction transaction = null;
         List<String> tableNames = new ArrayList<>();
-        Session session = sf.openSession();
-
+        Session session = SessionFactory.openSession();
         try {
             session.doWork(connection -> {
-                ResultSet resultSet = connection.getMetaData().getTables(null, null, "%", new String[]{"TABLE"});
+                ResultSet resultSet = connection.getMetaData().getTables(null, null,
+                        "%", new String[]{"TABLE"});
                 while (resultSet.next()) {
                     tableNames.add(resultSet.getString("TABLE_NAME"));
                 }
@@ -51,24 +32,53 @@ public class MatchDao {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            session.close(); // Закрытие сессии
+            session.close();
         }
 
         return tableNames;
     }
 
-    public List<Match> getAllMatches() {
+    public List<Match> getAll() {
         List<Match> matches = null;
-        Session session = sf.openSession();
+        Session session = SessionFactory.openSession();
+
         try {
             matches = session.createQuery("FROM Match", Match.class).list();
-           // matches = session.createNativeQuery("SELECT * FROM matches", Match.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
         return matches;
+    }
+
+    public List<MatchWebDto> getAllWebDto() {
+        List<Match> matches = getAll();
+        Session session = SessionFactory.openSession();
+        List<MatchWebDto> matchesWebDto = new ArrayList<>();
+
+
+        for (Match match : matches) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            try {
+                String date = match.getDate().format(formatter);
+                String firstPlayerName = session.find(Player.class, match.getFirstPlayerId()).getName();
+                String secondPlayerName = session.find(Player.class, match.getSecondPlayerId()).getName();
+                String winnerName = session.find(Player.class, match.getWinner()).getName();
+
+                MatchWebDto matchDto = new MatchWebDto(
+                        (date != null) ? date : "Unknown",
+                        (firstPlayerName != null) ? firstPlayerName : "Unknown",
+                        (secondPlayerName != null) ? secondPlayerName : "Unknown",
+                        (winnerName != null) ? winnerName : "Unknowed");
+                matchesWebDto.add(matchDto);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        session.close();
+        return matchesWebDto;
+
     }
 
 }

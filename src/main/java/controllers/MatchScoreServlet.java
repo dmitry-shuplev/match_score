@@ -5,14 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.MatchDto;
+import models.MatchProcessDto;
 import service.MatchHandler;
 
 import java.io.IOException;
 
 @WebServlet("/match-score")
 public class MatchScoreServlet extends HttpServlet {
-    MatchDto match;
+    MatchProcessDto match;
     MatchHandler matchHandler;
 
     @Override
@@ -21,7 +21,7 @@ public class MatchScoreServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        match = new MatchDto();
+        match = new MatchProcessDto();
         matchHandler = new MatchHandler(match);
         match.setFirstPlayerName("Иванов");
         match.setSecondPlayerName("Петров");
