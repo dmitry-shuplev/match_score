@@ -12,8 +12,18 @@
     <h1>Добро пожаловать в наше теннисное приложение!</h1>
 
     <div>
-        <form action="StartServlet" method="post">
-            <submit class="main-button">Начать новый матч между игроками.</submit>
+        <form action="${pageContext.request.contextPath}/index" method="post">
+            <div>
+                <input class="input-style" type="text" id="firstPlayer" name="firstPlayer" required>
+                <label class="label-style" for="firstPlayer">Имя первого игрока.</label>
+            </div>
+            <div>
+                <input class="input-style" type="text" id="secondPlayer" name="secondPlayer" required>
+                <label class="label-style" for="firstPlayer">Имя первого игрока.</label>
+            </div>
+            <div>
+                <button class="main-button" type="submit">Начать новый матч между игроками.</button>
+            </div>
         </form>
     </div>
     <div>

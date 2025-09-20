@@ -24,4 +24,17 @@ public class PlayerDao {
         return player;
 
     }
+
+    public String nameFormated(String inputName) {
+        String cleanedInput = inputName.replaceAll("[^a-zA-zа-яА-ЯёЁ'\s]", "");
+        String[] names = cleanedInput.split("\s+");
+        String formatedString = "";
+        for (String name : names) {
+            if (!name.isEmpty()) {
+                formatedString = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase()
+                        + " ";
+            }
+        }
+        return formatedString.trim();
+    }
 }

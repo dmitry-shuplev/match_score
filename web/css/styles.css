@@ -10,6 +10,16 @@ body {
     padding: 0;
     text-align: center;
 }
+button {
+    all: unset;
+    display: inline-block;
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    border: none;
+    cursor: pointer;
+}
+
 
 .container {
     margin: 50px auto;
@@ -85,4 +95,29 @@ td {
     padding: 0;
     margin: 0;
     text-decoration: none;
+}
+.input-style {
+    font-family: 'Digital-7'; /* Шрифт */
+    font-size: 20px;
+    background-color: #45a049; /* Цвет фона */
+    color: black; /* Цвет текста */
+    border: none; /* Убираем стандартные границы */
+    border-radius: 10px; /* Закругление углов */
+    padding: 10px; /* Внутренние отступы */
+    margin: 2px 0; /* Отступы вокруг элемента */
+    max-width: 600px; /* Максимальная ширина поля */
+    display: block; /* Делаем элемент блочным для центрирования */
+    width: 100%; /* Занимает всю ширину родителя */
+    box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+}
+
+.input-style:focus {
+    outline: none; /* Убираем стандартное обрамление при фокусе */
+    border: 2px solid darkslategray; /* Красное обрамление при фокусе */
+}
+
+.label-style {
+    display: block; /* Делает метку блочным элементом */
+    margin: 0; /* Убирает внешний отступ */
+    padding: 0; /* Убирает внутренний отступ */
 }
