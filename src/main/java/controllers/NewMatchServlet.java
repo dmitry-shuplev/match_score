@@ -23,8 +23,8 @@ public class NewMatchServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         match = new MatchProcessDto();
         matchHandler = new MatchHandler(match);
-        match.setFirstPlayerName("Иванов");
-        match.setSecondPlayerName("Петров");
+        match.setFirstPlayerName((String)request.getAttribute("first"));
+        match.setSecondPlayerName((String)request.getAttribute("second"));
               request.setAttribute("match", match);
         request.getRequestDispatcher("/match-score.jsp").forward(request, response);
     }

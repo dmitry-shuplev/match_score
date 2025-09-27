@@ -18,11 +18,11 @@ public class MatchProcessDto {
 
     public MatchProcessDto() {
         winnreName = "none";
-        firstPlayerGameScore = 0;
+        firstPlayerGameScore = 2;
         firstPlayerSetScore = 5;
         firstPlayerMatchScore = 1;
         secondPlayerGameScore = 0;
-        secondPlayerSetScore = 1;
-        secondPlayerMatchScore = 1;
+        secondPlayerSetScore = 0;
+        secondPlayerMatchScore = 0;
     }
 }
