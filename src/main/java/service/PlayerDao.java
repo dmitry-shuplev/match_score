@@ -15,9 +15,9 @@ public class PlayerDao {
     }
 
     public Player getById(int id) {
-        Player player = new Player();
-        try {
-            Session session = sessionFactory.openSession();
+        Player player = null;
+        try(Session session = sessionFactory.openSession()) {
+            player = session.find(Player.class, id);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
