@@ -1,18 +1,55 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="ru">
+<%@ page import="java.util.List" %>
+<%@ page import="models.MatchWebDto" %>
+<%
+    int i = 0;
+    List<MatchWebDto> matches = (List<MatchWebDto>) request.getAttribute("matchWebDto");
+%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Адаптивная верстка -->
-    <title>Стартовая страница</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css"> <!-- Подключение CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Digital&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="container">
-    <h1>Табло текущего матча</h1>
-    <a href="/" class="main-button">Вернуться в главное меню</a>
-</div>
-
+<h1>Список матчей</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Дата</th>
+        <th>Первый игрок</th>
+        <th>Второй игрок</th>
+        <th>Победитель</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+        if (matches != null && !matches.isEmpty()) {
+            for (MatchWebDto match : matches) {
+    %>
+    <tr>
+        <td><%= match.getMatchDate() %>
+        </td>
+        <td><%= match.getFirstPlayerName() %>
+        </td>
+        <td><%= match.getSecondPlayerName() %>
+        </td>
+        <td><%= match.getWinnreName() %>
+        </td>
+    </tr>
+    <%
+        }
+    } else {
+    %>
+    <tr>
+        <td colspan="5">Нет матчей для отображения.</td>
+    </tr>
+    <%
+        }
+    %>
+    </tbody>
+</table>
 </body>
 </html>

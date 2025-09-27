@@ -21,5 +21,10 @@ public class HibernateUtils {
         return sessionFactory;
     }
 
+    public static void shutDown() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
+    }
 }
 

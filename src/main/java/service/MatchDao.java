@@ -7,7 +7,6 @@ import models.Player;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import utils.HibernateUtils;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MatchDao {
-    private SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+    private final SessionFactory sessionFactory;
+
+    public MatchDao(SessionFactory sf){
+        this.sessionFactory = sf;
+    }
 
     public List<String> getAllTableNames() {
         Transaction transaction = null;
@@ -95,7 +98,7 @@ public class MatchDao {
 
     public Match getMatchFromMatchProcessDto(MatchProcessDto matchDto){
         Match match = new Match();
-        PlayerDao pd= new PlayerDao();
+        PlayerDao pd= new PlayerDao(sessionFactory);
         match.setFirstPlayerId(pd.getByName(matchDto.getFirstPlayerName()).getId());
         match.setSecondPlayerId(pd.getByName(matchDto.getSecondPlayerName()).getId());
         match.setWinner(pd.getByName(matchDto.getWinnreName()).getId());

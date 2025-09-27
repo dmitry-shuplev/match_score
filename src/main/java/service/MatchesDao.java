@@ -11,7 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MatchesDao {
-    SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+    SessionFactory sessionFactory;
+
+    public MatchesDao(SessionFactory sf){
+        this.sessionFactory = sf;
+    }
 
     public List<Match> getAllMatches() {
         List<Match> matches = new ArrayList<>();

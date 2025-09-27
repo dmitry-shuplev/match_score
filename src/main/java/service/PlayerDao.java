@@ -10,8 +10,8 @@ import utils.HibernateUtils;
 public class PlayerDao {
     SessionFactory sessionFactory;
 
-    public PlayerDao() {
-        sessionFactory = HibernateUtils.getSessionFactory();
+    public PlayerDao(SessionFactory sf) {
+        sessionFactory = sf;
     }
 
     public Player getById(int id) {
@@ -20,8 +20,6 @@ public class PlayerDao {
             player = session.find(Player.class, id);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            sessionFactory.close();
         }
         return player;
     }

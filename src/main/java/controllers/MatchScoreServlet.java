@@ -7,8 +7,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import models.MatchProcessDto;
+import org.hibernate.SessionFactory;
 import service.MatchDao;
 import service.MatchHandler;
+import service.PlayerDao;
 
 import java.io.IOException;
 
@@ -16,10 +18,15 @@ import java.io.IOException;
 public class MatchScoreServlet extends HttpServlet {
     MatchProcessDto matchProcessDto;
     MatchHandler matchHandler;
+    PlayerDao playerDao;
+    MatchDao matchDao;
 
     @Override
     public void init() throws ServletException {
         super.init();
+        SessionFactory sessionFactory = (SessionFactory) getServletContext().getAttribute("sessionFactory");
+        playerDao = new PlayerDao(sessionFactory);
+        matchDao = new MatchDao(sessionFactory);
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,14 +40,12 @@ public class MatchScoreServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String winnerName = request.getParameter("playerName");
         matchProcessDto = matchHandler.execute(winnerName);
         request.setAttribute("match", matchProcessDto);
         if (matchProcessDto.getWinnreName().equals("none")) {
             request.getRequestDispatcher("/match-score.jsp").forward(request, response);
         } else {
-            MatchDao matchDao = new MatchDao();
             matchDao.saveMatch(matchDao.getMatchFromMatchProcessDto(matchProcessDto));
             request.getRequestDispatcher("/matches.jsp").forward(request, response);
         }
