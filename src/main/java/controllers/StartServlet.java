@@ -1,15 +1,18 @@
 package controllers;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.hibernate.SessionFactory;
 import service.MatchDao;
 import service.PlayerDao;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 @WebServlet("/index")
 public class StartServlet extends HttpServlet {
@@ -38,8 +41,11 @@ public class StartServlet extends HttpServlet {
         if (!playerDao.isCurrentPlayerExist(secondPlayerName)) {
             playerDao.crateNewPlayer(secondPlayerName);
         }
-//log
 
-        response.sendRedirect(request.getContextPath() + "/match-score");
-    }
+        HttpSession session = request.getSession();
+        session.setAttribute("first", firstPlayerName);
+        session.setAttribute("second", secondPlayerName);
+
+        response.sendRedirect(request.getContextPath()+"/match-score");
+}
 }
