@@ -37,7 +37,6 @@ public class StartServlet extends HttpServlet {
         if (!playerDao.isCurrentPlayerExist(firstPlayerName)) {
             playerDao.crateNewPlayer(firstPlayerName);
         }
-
         if (!playerDao.isCurrentPlayerExist(secondPlayerName)) {
             playerDao.crateNewPlayer(secondPlayerName);
         }
@@ -45,7 +44,6 @@ public class StartServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("first", firstPlayerName);
         session.setAttribute("second", secondPlayerName);
-
         response.sendRedirect(request.getContextPath()+"/match-score");
 }
 }
