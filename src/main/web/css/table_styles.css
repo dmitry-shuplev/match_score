@@ -1,0 +1,51 @@
+h1 {
+    text-align: center;
+    font-size: 200%;
+}
+
+.container {
+    display: grid; /* Устанавливаем grid-контейнер */
+    place-items: center; /* Центруем элемент по горизонтали и вертикали */
+    border-radius: 20px; /* Скругление углов контейнера */
+    background-color: #45a049; /* Цвет фона таблицы */
+    border: none; !important;
+}
+
+.matches-table {
+    width: 100%; /* Ширина таблицы */
+    border-collapse: collapse; /* Убираем пробелы между ячейками */
+    border:none;
+    margin: 20px 0; /* Отступы сверху и снизу */
+    width: 95%;
+}
+
+.matches-table th {
+    border: none;
+    background-color: #45a049; /* Цвет фона для заголовков */
+    color: white; /* Цвет текста заголовков */
+    padding: 10px; /* Отступы внутри ячеек заголовка */
+    text-align: center; /* Выравнивание текста по центру */
+    font-size: 150%
+}
+
+.matches-table td {
+    border: none;
+    border: 1px solid black; /* Граница ячеек */
+    padding: 10px; /* Отступ внутри ячейки */
+    text-align: center; /* Выравнивание текста по центру */
+    font-size: 1.2em; /* Размер шрифта для ячеек */
+}
+
+.matches-table tr:nth-child(even) {
+    background-color: darkgray;
+!important; /* Цвет фона для четных строк */
+}
+
+.matches-table tr:nth-child(odd) {
+    background-color: lightslategray; /* Цвет фона для нечетных строк */
+}
+
+.matches-table tr:hover {
+    background-color: #45a049; /* Цвет фона при наведении на строку */
+    color: white; /* Цвет текста при наведении */
+}

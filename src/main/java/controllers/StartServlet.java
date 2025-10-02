@@ -12,7 +12,6 @@ import service.MatchDao;
 import service.PlayerDao;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 @WebServlet("/index")
 public class StartServlet extends HttpServlet {
@@ -27,7 +26,8 @@ public class StartServlet extends HttpServlet {
     }
 
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

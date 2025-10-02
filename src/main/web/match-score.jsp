@@ -4,17 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Адаптивная верстка -->
-    <title>Стартовая страница</title>
+    <title>Проводится матч</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
-    <!-- Подключение CSS -->
 </head>
 <body>
 
 <div class="container">
     <h1>Табло текущего матча</h1>
-    <%-- Табло матча --%>
-    <% MatchProcessDto match = (MatchProcessDto) request.getAttribute("match"); %>
-    <%!
+        <% MatchProcessDto match = (MatchProcessDto) request.getAttribute("match"); %>
+        <%!
         String convertedScore(int score1, int score2) {
             if (score1 > 3) {
                 if (score1 <= score2) {
@@ -49,7 +47,8 @@
                     </button>
                 </form>
             </td>
-            <td><%=convertedScore(match.getFirstPlayerGameScore(), match.getSecondPlayerGameScore())%></td>
+            <td><%=convertedScore(match.getFirstPlayerGameScore(), match.getSecondPlayerGameScore())%>
+            </td>
             <td>${match.getFirstPlayerSetScore()}</td>
             <td>${match.getFirstPlayerMatchScore()}</td>
         </tr>
@@ -67,15 +66,15 @@
                     </button>
                 </form>
             </td>
-            <td><%=convertedScore(match.getSecondPlayerGameScore(), match.getFirstPlayerGameScore())%></td>
+            <td><%=convertedScore(match.getSecondPlayerGameScore(), match.getFirstPlayerGameScore())%>
+            </td>
             <td>${match.getSecondPlayerSetScore()}</td>
             <td>${match.getSecondPlayerMatchScore()}</td>
         </tr>
     </table>
-    <%--    --%>
 
-    <a href="/" class="main-button">Вернуться в главное меню</a>
-</div>
-
+    <div>
+        <a href="${pageContext.request.contextPath}/index" class="main-button">Начать заново.</a>
+    </div>
 </body>
 </html>

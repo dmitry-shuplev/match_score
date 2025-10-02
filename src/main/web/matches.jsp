@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="models.MatchWebDto" %>
 <%
-    int i = 0;
     List<MatchWebDto> matches = (List<MatchWebDto>) request.getAttribute("matchWebDto");
 %>
 <!DOCTYPE html>
@@ -11,11 +10,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matches</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table_styles.css">
 </head>
 <body>
 <h1>Список матчей</h1>
-<table border="1">
+<div>
+    <form action="${pageContext.request.contextPath}/matches" method="post">
+
+    </form>
+</div>
+<div class="container">
+<table class="matches-table">
     <thead>
     <tr>
         <th>Дата</th>
@@ -51,5 +56,6 @@
     %>
     </tbody>
 </table>
+</div>
 </body>
 </html>
