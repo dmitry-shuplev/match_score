@@ -29,4 +29,18 @@ public class MatchesDao {
         matches.sort((m1, m2) -> m2.getDate().compareTo(m1.getDate()));
         return matches;
     }
+
+    public List<Match> getMatchesByPlayer(String p){
+        List<Match> matches = new ArrayList<>();
+        try(Session session = sessionFactory.openSession()){
+            Transaction transaction = null;
+            int playerId = new PlayerDao(sessionFactory).getByName(p).getId();
+            String hql = "From Match";
+            matches = session.createQuery(hql, Match.class).getResultList();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    return matches;
+    }
+
 }

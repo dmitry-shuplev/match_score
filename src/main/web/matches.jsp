@@ -16,7 +16,13 @@
 <h1>Список матчей</h1>
 <div>
     <form action="${pageContext.request.contextPath}/matches" method="post">
-
+        <div>
+            <input class="input-style" type="text" id="foundPlayer" name="secondPlayer" required>
+            <label class="label-style" for="foundPlayer">Имя первого игрока.</label>
+        </div>
+        <div>
+            <button class="main-button" type="submit">Начать новый матч между игроками.</button>
+        </div>
     </form>
 </div>
 <div class="container">

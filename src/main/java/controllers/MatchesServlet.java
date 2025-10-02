@@ -30,4 +30,11 @@ public class MatchesServlet extends HttpServlet {
         request.setAttribute("matchWebDto", matchesWebDto);
         request.getRequestDispatcher("/matches.jsp").forward(request, response);
     }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse respnse) throws ServletException, IOException{
+        String foundPlayer  = request.getParameter("foundPlayer");
+        List<MatchWebDto> matchesWebDto = matchesHadler.convertToMatchWebDto(matchesDao.getMatchesByPlayer(foundPlayer));
+        request.setAttribute("matchWebDto", matchesWebDto);
+        request.getRequestDispatcher("/matches.jsp").forward(request, respnse);
+    }
 }
