@@ -14,16 +14,7 @@
 </head>
 <body>
 <h1>Список матчей</h1>
-<div>
-    <form action="${pageContext.request.contextPath}/matches" method="post">
-        <div>
-            <input class="input-style" type="text" id="foundPlayer" name="secondPlayer" required>
-            <label class="label-style" for="foundPlayer">Имя первого игрока.</label>
-        </div>
-        <div>
-            <button class="main-button" type="submit">Начать новый матч между игроками.</button>
-        </div>
-    </form>
+
 </div>
 <div class="container">
 <table class="matches-table">
@@ -39,13 +30,26 @@
     <%
         if (matches != null && !matches.isEmpty()) {
             for (MatchWebDto match : matches) {
+                String fPlayer = match.getFirstPlayerName();
+                String sPlayer = match.getSecondPlayerName();
     %>
     <tr>
-        <td><%= match.getMatchDate() %>
+        <td>
+            <%= match.getMatchDate() %>
         </td>
-        <td><%= match.getFirstPlayerName() %>
+        <td>
+            <form action="${pageContext.request.contextPath}/matches" method="post" style="display: inline">
+                <button type="submit" name="pName" value="<%=fPlayer%>" class="button-link">
+                    <%=fPlayer%>
+                </button>
+            </form>
         </td>
-        <td><%= match.getSecondPlayerName() %>
+        <td>
+        <form action="${pageContext.request.contextPath}/matches" method="post" style="display: inline">
+            <button type="submit" name="pName" value="<%=sPlayer%>" class="button-link">
+                <%=sPlayer%>
+            </button>
+        </form>
         </td>
         <td><%= match.getWinnreName() %>
         </td>

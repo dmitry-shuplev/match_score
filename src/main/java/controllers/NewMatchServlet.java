@@ -31,7 +31,7 @@ public class NewMatchServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String winnerName = request.getParameter("playerName");
+        String winnerName = request.getParameter("pName");
         match = matchHandler.execute(winnerName);
         request.setAttribute("match", match);
         if (match.getWinnreName().equals("none")) {

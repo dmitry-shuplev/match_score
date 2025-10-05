@@ -11,6 +11,18 @@ h1 {
     border: none; !important;
 }
 
+.button-link {
+    background-color: transparent !important; /* Прозрачный фон */
+    border: none !important; /* Убираем границы */
+    color: inherit !important; /* Унаследовать цвет текста от родителя */
+    cursor: pointer !important; /* Указываем курсор как указатель */
+    font-size: inherit !important; /* Унаследовать размер шрифта */
+    text-align: left !important; /* Выравнивание текста */
+    padding: 0 !important; /* Убираем внутренние отступы */
+    margin: 0 !important; /* Убираем внешние отступы */
+    text-decoration: none !important; /* Убираем подчеркивание */
+}
+
 .matches-table {
     width: 100%; /* Ширина таблицы */
     border-collapse: collapse; /* Убираем пробелы между ячейками */

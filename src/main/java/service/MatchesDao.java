@@ -5,6 +5,7 @@ import models.MatchWebDto;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import utils.HibernateUtils;
 
 import java.util.ArrayList;
@@ -34,9 +35,12 @@ public class MatchesDao {
         List<Match> matches = new ArrayList<>();
         try(Session session = sessionFactory.openSession()){
             Transaction transaction = null;
+            String hql = "FROM Match m WHERE m.firstPlayerId = :playerId OR m.secondPlayerId = :playerId";
+            Query<Match> query = session.createQuery(hql, Match.class);
             int playerId = new PlayerDao(sessionFactory).getByName(p).getId();
-            String hql = "From Match";
-            matches = session.createQuery(hql, Match.class).getResultList();
+            query.setParameter("playerId", playerId);
+            matches = query.getResultList();
+            transaction.commit();
         }catch(Exception e){
             e.printStackTrace();
         }
