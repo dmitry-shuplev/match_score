@@ -30,11 +30,11 @@ public class MatchesServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<MatchWebDto> matchesWebDto = matchesHadler.convertToMatchWebDto(matchesDao.getAllMatches());
-        currentPage = 1;
+        currentPage = (request.getParameter("currentPage")==null) ? 1 : Integer.parseInt(request.getParameter("currentPage"));
         int notes = matchesWebDto.size();
-        totalPages = (int) Math.ceil((double) notes/NotesInPalge);
-        System.out.println(notes);
-        System.out.println(totalPages);
+        totalPages = (int) Math.ceil((double) notes / NotesInPalge);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("currentPage", currentPage);
         request.setAttribute("matchWebDto", matchesWebDto);
         request.getRequestDispatcher("/matches.jsp").forward(request, response);
     }
@@ -43,7 +43,12 @@ public class MatchesServlet extends HttpServlet {
 
         String foundPlayer = request.getParameter("pName");
         List<MatchWebDto> matchesWebDto = matchesHadler.convertToMatchWebDto(matchesDao.getMatchesByPlayer(foundPlayer));
-
+        currentPage = (request.getParameter("currentPage")==null) ? 1 : Integer.parseInt(request.getParameter("currentPage"));
+        int notes = matchesWebDto.size();
+        totalPages = (int) Math.ceil((double) notes / NotesInPalge);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("currentPage", currentPage);
+        request.setAttribute("matchWebDto", matchesWebDto);
         request.setAttribute("matchWebDto", matchesWebDto);
         request.getRequestDispatcher("/matches.jsp").forward(request, respnse);
     }

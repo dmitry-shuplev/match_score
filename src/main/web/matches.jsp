@@ -15,57 +15,72 @@
 <body>
 <h1>Список матчей</h1>
 
+<div class="pagination">
+    <%
+        int totalPages = (int) request.getAttribute("totalPages");
+        int currentPate = (int) request.getAttribute("currentPage");
+        String spanClass;
+        for (int i = 1; i <= totalPages; i++) {
+            spanClass = (i == currentPate) ? "page-item active" : "page-item";
+    %>
+    <a href="${pageContext.request.contextPath}/matches?currentPage=<%= i %>" class="<%= spanClass %>"><%= i %></a>
+    <%}%>
+
+</div>
+
 </div>
 <div class="container">
-<table class="matches-table">
-    <thead>
-    <tr>
-        <th>Дата</th>
-        <th>Первый игрок</th>
-        <th>Второй игрок</th>
-        <th>Победитель</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%
-        if (matches != null && !matches.isEmpty()) {
-            for (MatchWebDto match : matches) {
-                String fPlayer = match.getFirstPlayerName();
-                String sPlayer = match.getSecondPlayerName();
-    %>
-    <tr>
-        <td>
-            <%= match.getMatchDate() %>
-        </td>
-        <td>
-            <form action="${pageContext.request.contextPath}/matches" method="post" style="display: inline">
-                <button type="submit" name="pName" value="<%=fPlayer%>" class="button-link">
-                    <%=fPlayer%>
-                </button>
-            </form>
-        </td>
-        <td>
-        <form action="${pageContext.request.contextPath}/matches" method="post" style="display: inline">
-            <button type="submit" name="pName" value="<%=sPlayer%>" class="button-link">
-                <%=sPlayer%>
-            </button>
-        </form>
-        </td>
-        <td><%= match.getWinnreName() %>
-        </td>
-    </tr>
-    <%
-        }
-    } else {
-    %>
-    <tr>
-        <td colspan="5">Нет матчей для отображения.</td>
-    </tr>
-    <%
-        }
-    %>
-    </tbody>
-</table>
+    <table class="matches-table">
+        <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Первый игрок</th>
+            <th>Второй игрок</th>
+            <th>Победитель</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            if (matches != null && !matches.isEmpty()) {
+                int finishNoteNumber = currentPate*15;
+                for (int i=finishNoteNumber-15; i<finishNoteNumber; i++) {
+                    MatchWebDto match = matches.get(i);
+                    String fPlayer = match.getFirstPlayerName();
+                    String sPlayer = match.getSecondPlayerName();
+        %>
+        <tr>
+            <td>
+                <%= match.getMatchDate() %>
+            </td>
+            <td>
+                <form action="${pageContext.request.contextPath}/matches" method="post" style="display: inline">
+                    <button type="submit" name="pName" value="<%=fPlayer%>" class="button-link">
+                        <%=fPlayer%>
+                    </button>
+                </form>
+            </td>
+            <td>
+                <form action="${pageContext.request.contextPath}/matches" method="post" style="display: inline">
+                    <button type="submit" name="pName" value="<%=sPlayer%>" class="button-link">
+                        <%=sPlayer%>
+                    </button>
+                </form>
+            </td>
+            <td><%= match.getWinnreName() %>
+            </td>
+        </tr>
+        <%
+            }
+        } else {
+        %>
+        <tr>
+            <td colspan="5">Нет матчей для отображения.</td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

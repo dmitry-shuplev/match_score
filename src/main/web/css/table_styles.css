@@ -61,3 +61,28 @@ h1 {
     background-color: #45a049; /* Цвет фона при наведении на строку */
     color: white; /* Цвет текста при наведении */
 }
+
+.pagination {
+    display: flex; /* Используем flex для выравнивания элементов */
+    justify-content: center; /* Центруем элементы */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.page-item {
+    width: 30px; /* Ширина кружков */
+    height: 30px; /* Высота кружков */
+    border-radius: 50%; /* Скругление до круга */
+    background-color: #45a049; /* Цвет фона для пассивных страниц */
+    color: white; /* Цвет текста */
+    display: flex; /* Используем flex для центрирования текста */
+    align-items: center; /* Вертикальное выравнивание текста */
+    justify-content: center; /* Горизонтальное выравнивание текста */
+    margin: 0 5px; /* Отступы между кружками */
+    cursor: pointer; /* Указатель при наведении */
+    transition: transform 0.2s; /* Плавный переход для увеличения */
+}
+
+.page-item.active {
+    background-color: darkgreen; /* Цвет фона для активной страницы */
+    transform: scale(1.2); /* Увеличиваем активную страницу на 20% */
+}
