@@ -33,7 +33,10 @@ public class NewMatchServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String firstPlayerName = playerDao.nameFormated(request.getParameter("firstPlayer"));
         String secondPlayerName = playerDao.nameFormated(request.getParameter("secondPlayer"));
-
+        if (firstPlayerName.equals(secondPlayerName)) {
+            response.sendRedirect(request.getContextPath() + "/message.jsp");
+            return;
+        }
         if (!playerDao.isCurrentPlayerExist(firstPlayerName)) {
             playerDao.crateNewPlayer(firstPlayerName);
         }
@@ -44,6 +47,6 @@ public class NewMatchServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("first", firstPlayerName);
         session.setAttribute("second", secondPlayerName);
-        response.sendRedirect(request.getContextPath()+"/match-score");
+        response.sendRedirect(request.getContextPath() + "/match-score");
     }
 }
