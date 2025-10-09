@@ -18,12 +18,20 @@
 <div class="pagination">
     <%
         int totalPages = (int) request.getAttribute("totalPages");
-        int currentPate = (int) request.getAttribute("currentPage");
+        int currentPage = (int) request.getAttribute("currentPage");
         String spanClass;
+        String servletMethod = (request.getAttribute("method") == null) ? "get" : "post";
+
         for (int i = 1; i <= totalPages; i++) {
-            spanClass = (i == currentPate) ? "page-item active" : "page-item";
+            spanClass = (i == currentPage) ? "page-item active" : "page-item";
     %>
-    <a href="${pageContext.request.contextPath}/matches?currentPage=<%= i %>" class="<%= spanClass %>"><%= i %></a>
+    <form action="${pageContext.request.contextPath}/matches" method="<%=servletMethod%>">
+        <input type="hidden" name="currentPage" value="<%=i%>">
+        <button type="submit" class="<%=spanClass%>"><%= i %>
+        </button>
+    </form>
+    <%--    <a href="${pageContext.request.contextPath}/matches?currentPage=<%= i %>" class="<%= spanClass %>"><%= i %></a>--%>
+    <%--    <button type="submit" class="<%=spanClass%>"> <%=i%></button>--%>
     <%}%>
 
 </div>
@@ -42,9 +50,7 @@
         <tbody>
         <%
             if (matches != null && !matches.isEmpty()) {
-                int finishNoteNumber = currentPate*15;
-                for (int i=finishNoteNumber-15; i<finishNoteNumber; i++) {
-                    MatchWebDto match = matches.get(i);
+                for (MatchWebDto match : matches) {
                     String fPlayer = match.getFirstPlayerName();
                     String sPlayer = match.getSecondPlayerName();
         %>
