@@ -28,7 +28,7 @@ button {
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Максимальная ширина для контейнера */
+    max-width: 600px;
 }
 
 h1 {
@@ -52,36 +52,36 @@ h1 {
 
 
 table {
-    width: 100%; /* Ширина таблицы */
-    border-collapse: collapse; /* Убираем пробелы между ячейками */
+    width: 100%;
+    border-collapse: collapse;
 }
 
 td {
-    border: none; /* Граница ячейки */
-    padding: 10px; /* Отступ внутри ячейки */
-    text-align: center; /* Выравнивание текста по центру */
-    font-size: 1.2em; /* Размер шрифта для ячеек */
+    border: none;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
 }
 
 .scoreboard {
     font-family: 'Digital-7', monospace;
-    background-color: black; /* Цвет фона для таблицы */
-    color: red; /* Цвет текста */
-    border-radius: 10px; /* Закругление углов */
-    margin: 20px auto; /* Центрируем таблицу */
-    max-width: 600px; /* Максимальная ширина таблицы */
+    background-color: black;
+    color: red;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
 }
 
 .player-info {
-    width: 100%; /* Полная ширина для выравнивания текста */
+    width: 100%;
     font-size: 2em;
-    margin-bottom: 10px; /* Отступ между игроками */
+    margin-bottom: 10px;
 }
 
 .score-labels {
-    width: 100%; /* Задаем ширину для выравнивания */
-    font-size: 1em; /* Размер шрифта для названий */
-    margin-bottom: 10px; /* Отступ между заголовками и следующей секцией */
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 10px;
 }
 
 .button-link {
@@ -97,27 +97,27 @@ td {
     text-decoration: none;
 }
 .input-style {
-    font-family: 'Digital-7'; /* Шрифт */
+    font-family: 'Digital-7';
     font-size: 20px;
-    background-color: #45a049; /* Цвет фона */
-    color: black; /* Цвет текста */
-    border: none; /* Убираем стандартные границы */
-    border-radius: 10px; /* Закругление углов */
-    padding: 10px; /* Внутренние отступы */
-    margin: 2px 0; /* Отступы вокруг элемента */
-    max-width: 600px; /* Максимальная ширина поля */
-    display: block; /* Делаем элемент блочным для центрирования */
-    width: 100%; /* Занимает всю ширину родителя */
-    box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+    background-color: #45a049;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 2px 0;
+    max-width: 600px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .input-style:focus {
-    outline: none; /* Убираем стандартное обрамление при фокусе */
-    border: 2px solid darkslategray; /* Красное обрамление при фокусе */
+    outline: none;
+    border: 2px solid darkslategray;
 }
 
 .label-style {
-    display: block; /* Делает метку блочным элементом */
-    margin: 0; /* Убирает внешний отступ */
-    padding: 0; /* Убирает внутренний отступ */
+    display: block;
+    margin: 0;
+    padding: 0;
 }

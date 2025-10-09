@@ -3,117 +3,117 @@ h1 {
     font-size: 200%;
 }
 
-/* Сбрасываем стили для формы */
+     
 form {
-    margin: 0; /* Убираем отступы */
-    padding: 0; /* Убираем внутренние отступы */
-    border: none; /* Убираем границы */
-    background: none; /* Убираем фон */
+    margin: 0;    
+    padding: 0;     
+    border: none;    
+    background: none;    
 }
 
-/* Сбрасываем стили для кнопок */
+     
 button {
-    margin: 0; /* Убираем отступы */
-    padding: 0; /* Убираем внутренние отступы */
-    border: none; /* Убираем границы */
-    background: none; /* Убираем фон */
-    color: inherit; /* Унаследуем цвет текста от родителя */
-    font: inherit; /* Унаследуем шрифт от родителя */
-    cursor: pointer; /* Указываем, что это кнопка */
-    text-align: left; /* Выравнивание текста по левому краю */
-    text-decoration: none; /* Убираем подчеркивание */
+    margin: 0;    
+    padding: 0;     
+    border: none;    
+    background: none;    
+    color: inherit;       
+    font: inherit;      
+    cursor: pointer;  ,    
+    text-align: left;       
+    text-decoration: none;    
 }
 
-/* Если хотите сбросить стили для всех input элементов */
+       input  
 input {
-    margin: 0; /* Убираем отступы */
-    padding: 0; /* Убираем внутренние отступы */
-    border: none; /* Убираем границы */
-    background: none; /* Убираем фон */
-    color: inherit; /* Унаследуем цвет текста от родителя */
-    font: inherit; /* Унаследуем шрифт от родителя */
+    margin: 0;    
+    padding: 0;     
+    border: none;    
+    background: none;    
+    color: inherit;       
+    font: inherit;      
 }
 
 .container {
-    display: grid; /* Устанавливаем grid-контейнер */
-    place-items: center; /* Центруем элемент по горизонтали и вертикали */
-    border-radius: 20px; /* Скругление углов контейнера */
-    background-color: #45a049; /* Цвет фона таблицы */
+    display: grid;
+    place-items: center;        
+    border-radius: 20px;     
+    background-color: #45a049;     
     border: none; !important;
 }
 
 .button-link {
-    background-color: transparent !important; /* Прозрачный фон */
-    border: none !important; /* Убираем границы */
-    color: inherit !important; /* Унаследовать цвет текста от родителя */
-    cursor: pointer !important; /* Указываем курсор как указатель */
-    font-size: inherit !important; /* Унаследовать размер шрифта */
-    text-align: left !important; /* Выравнивание текста */
-    padding: 0 !important; /* Убираем внутренние отступы */
-    margin: 0 !important; /* Убираем внешние отступы */
-    text-decoration: none !important; /* Убираем подчеркивание */
+    background-color: transparent !important;    
+    border: none !important;    
+    color: inherit !important;       
+    cursor: pointer !important;      
+    font-size: inherit !important;     
+    text-align: left !important;    
+    padding: 0 !important;     
+    margin: 0 !important;     
+    text-decoration: none !important;    
 }
 
 .matches-table {
-    width: 100%; /* Ширина таблицы */
-    border-collapse: collapse; /* Убираем пробелы между ячейками */
+    width: 100%;    
+    border-collapse: collapse;      
     border:none;
-    margin: 20px 0; /* Отступы сверху и снизу */
+    margin: 20px 0;      
     width: 95%;
 }
 
 .matches-table th {
     border: none;
-    background-color: #45a049; /* Цвет фона для заголовков */
-    color: white; /* Цвет текста заголовков */
-    padding: 10px; /* Отступы внутри ячеек заголовка */
-    text-align: center; /* Выравнивание текста по центру */
+    background-color: #45a049;      
+    color: white;     
+    padding: 10px;      
+    text-align: center;      
     font-size: 150%
 }
 
 .matches-table td {
     border: none;
-    border: 1px solid black; /* Граница ячеек */
-    padding: 10px; /* Отступ внутри ячейки */
-    text-align: center; /* Выравнивание текста по центру */
-    font-size: 1.2em; /* Размер шрифта для ячеек */
+    border: 1px solid black;    
+    padding: 10px;     
+    text-align: center;      
+    font-size: 1.2em;      
 }
 
 .matches-table tr:nth-child(even) {
     background-color: darkgray;
-!important; /* Цвет фона для четных строк */
+!important;       
 }
 
 .matches-table tr:nth-child(odd) {
-    background-color: lightslategray; /* Цвет фона для нечетных строк */
+    background-color: lightslategray;       
 }
 
 .matches-table tr:hover {
-    background-color: #45a049; /* Цвет фона при наведении на строку */
-    color: white; /* Цвет текста при наведении */
+    background-color: #45a049;        
+    color: white;      
 }
 
 .pagination {
-    display: flex; /* Используем flex для выравнивания элементов */
-    justify-content: center; /* Центруем элементы */
-    margin: 20px 0; /* Отступы сверху и снизу */
+    display: flex;
+    justify-content: center;    
+    margin: 20px 0;      
 }
 
 .page-item {
-    width: 30px; /* Ширина кружков */
-    height: 30px; /* Высота кружков */
-    border-radius: 50%; /* Скругление до круга */
-    background-color: #45a049; /* Цвет фона для пассивных страниц */
-    color: white; /* Цвет текста */
-    display: flex; /* Используем flex для центрирования текста */
-    align-items: center; /* Вертикальное выравнивание текста */
-    justify-content: center; /* Горизонтальное выравнивание текста */
-    margin: 0 5px; /* Отступы между кружками */
-    cursor: pointer; /* Указатель при наведении */
-    transition: transform 0.2s; /* Плавный переход для увеличения */
+    width: 30px;    
+    height: 30px;    
+    border-radius: 50%;     
+    background-color: #45a049;       
+    color: white;    
+    display: flex;
+    align-items: center;     
+    justify-content: center;     
+    margin: 0 5px;     
+    cursor: pointer;     
+    transition: transform 0.2s;      
 }
 
 .page-item.active {
-    background-color: darkgreen; /* Цвет фона для активной страницы */
-    transform: scale(1.2); /* Увеличиваем активную страницу на 20% */
+    background-color: darkgreen;       
+    transform: scale(1.2);
 }
