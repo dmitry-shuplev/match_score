@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matches</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table_styles.css">
+
 </head>
 <body>
 <h1>Список матчей</h1>
@@ -25,15 +26,17 @@
         for (int i = 1; i <= totalPages; i++) {
             spanClass = (i == currentPage) ? "page-item active" : "page-item";
     %>
-    <form action="${pageContext.request.contextPath}/matches" method="<%=servletMethod%>">
+    <form action="<%= request.getContextPath() %>/matches" method="<%=servletMethod%>">
         <input type="hidden" name="currentPage" value="<%=i%>">
         <button type="submit" class="<%=spanClass%>"><%= i %>
         </button>
     </form>
-    <%--    <a href="${pageContext.request.contextPath}/matches?currentPage=<%= i %>" class="<%= spanClass %>"><%= i %></a>--%>
-    <%--    <button type="submit" class="<%=spanClass%>"> <%=i%></button>--%>
     <%}%>
 
+</div>
+
+<div class = "button-container">
+    <a href="<%= request.getContextPath() %>/new-match" class="main-button">Начать новый матч</a>
 </div>
 
 </div>
@@ -88,5 +91,6 @@
         </tbody>
     </table>
 </div>
+
 </body>
 </html>

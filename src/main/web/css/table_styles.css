@@ -24,7 +24,20 @@ button {
     text-decoration: none;    
 }
 
-       input  
+.main-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center; /* Центрирование текста внутри кнопки */
+    margin-left: auto; /* Автоматический отступ слева */
+    margin-right: auto;
+}
+
 input {
     margin: 0;    
     padding: 0;     
@@ -35,11 +48,15 @@ input {
 }
 
 .container {
-    display: grid;
-    place-items: center;        
+    place-items: center;
     border-radius: 20px;     
     background-color: #45a049;     
     border: none; !important;
+}
+
+.button-container {
+    text-align: center; /* Центрируем содержимое в контейнере */
+    margin-top: 30px; /* Отступ сверху для контейнера, если нужно */
 }
 
 .button-link {

@@ -18,9 +18,9 @@ public class MatchProcessDto {
 
     public MatchProcessDto() {
         winnreName = "none";
-        firstPlayerGameScore = 2;
-        firstPlayerSetScore = 5;
-        firstPlayerMatchScore = 1;
+        firstPlayerGameScore = 0;
+        firstPlayerSetScore = 0;
+        firstPlayerMatchScore = 0;
         secondPlayerGameScore = 0;
         secondPlayerSetScore = 0;
         secondPlayerMatchScore = 0;
