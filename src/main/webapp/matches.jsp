@@ -37,6 +37,7 @@
 
 <div class = "button-container">
     <a href="<%= request.getContextPath() %>/new-match" class="main-button">Начать новый матч</a>
+    <a href="<%= request.getContextPath() %>/matches" class="main-button">Показать все матчи</a>
 </div>
 
 </div>

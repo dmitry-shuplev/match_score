@@ -47,7 +47,8 @@ public class MatchScoreServlet extends HttpServlet {
             request.getRequestDispatcher("/match-score.jsp").forward(request, response);
         } else {
             matchDao.saveMatch(matchDao.getMatchFromMatchProcessDto(matchProcessDto));
-            response.sendRedirect(request.getContextPath() + "/matches");
+            request.getSession().setAttribute("message", "Матч закончен выиграл : " + winnerName);
+            response.sendRedirect(request.getContextPath() + "/message.jsp");
         }
     }
 }

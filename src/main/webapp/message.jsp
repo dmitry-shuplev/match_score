@@ -15,15 +15,13 @@
         }, 3000);
     </script>
 
-    <div class="container">
-        <h2> Что то случилось</h2>
 
-
-    </div>
 </head>
 <body>
-<h1>Случилось событие</h1>
-
-
+<div class="container">
+    <h1>Произошло событие</h1>
+    <h2><%=session.getAttribute("message")%></h2>
+    <%session.removeAttribute("message");%>
+</div>
 </body>
 </html>

@@ -12,10 +12,10 @@
     <h1>Добро пожаловать в наше теннисное приложение!</h1>
 
     <div>
-        <a href="/new-match" class="main-button">Создать новый матч</a>
+        <a href="<%=request.getContextPath()%>/new-match" class="main-button">Создать новый матч</a>
     </div>
     <div>
-        <a href="/matches" class="main-button">Посмотреь список матчей</a>
+        <a href="<%=request.getContextPath()%>/matches" class="main-button">Посмотреь список матчей</a>
     </div>
 
 </div>
